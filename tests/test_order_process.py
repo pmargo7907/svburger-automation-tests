@@ -19,7 +19,7 @@ def test_user_can_make_order():
     registration.register(
         first_name="Anna",
         last_name="Ivanova",
-        email="11test@mail.com",
+        email="20test@mail.com",
         password="123456",
         confirm_password="123456"
     )
@@ -30,10 +30,13 @@ def test_user_can_make_order():
     menu = ProductsPage(page)
     assert menu.is_opened()
 
-    menu.click_first_product()
+    count = menu.get_products_count()
+    print("Products in Menu",count)
 
-    menu.click_reserve_btn()
-    page.wait_for_selector("text=SVBurger Summary", timeout=10000)
+    for i in range(count):
+        menu.click_product_by_index(i)
+        menu.click_reserve_btn()
+        page.wait_for_selector("text=SVBurger Summary", timeout=10000)
 
     assert menu.is_order_popup_opened()
     assert menu.is_summary_visible()

@@ -18,7 +18,7 @@ def test_user_can_register():
     registration.register(
         first_name ="Anna",
         last_name="Ivanova",
-        email="8test@mail.com",
+        email="15test@mail.com",
         password="123456",
         confirm_password ="123456"
     )
