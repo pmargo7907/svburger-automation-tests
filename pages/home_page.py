@@ -5,6 +5,7 @@ class HomePage:
         self.page = page
         self.title_text = "text=Lets start your way to our best burger"
         self.submit_button = "text=Sign Up"
+        self.sign_in_button = "a[href='#/SignIn'] button"
         self.product_cards = ".productsMain.card"
 
     def open(self):
@@ -18,3 +19,6 @@ class HomePage:
         self.page.click(self.submit_button)
         print("URL after sign_up:", self.page.url)
 
+    def click_sign_in(self):
+        self.page.click(self.sign_in_button)
+        print("URL after sign_in:", self.page.url)

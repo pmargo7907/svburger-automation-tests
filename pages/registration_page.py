@@ -9,6 +9,8 @@ class RegistrationPage:
         self.submit_button = "text=Sign Up"
         self.profile_email = "text=Email:"
         self.logout_button = "text=Log out"
+        self.invalid_email_error = "text=Invalid Email"
+        self.email_exists_error = "text=Email already exists"
 
     def is_opened(self):
         return self.page.locator(self.first_name_input).is_visible()
@@ -25,11 +27,11 @@ class RegistrationPage:
         self.page.click(self.confirm_password_input)
         self.page.fill(self.confirm_password_input, confirm_password)
         self.page.click(self.submit_button)
-        #self.page.pause()
-        self.email_exists_error = "text=Email already exists"
-        if self.is_email_already_exists():
-           raise AssertionError("Registration failed: email already exists")
-        self.page.wait_for_selector(self.logout_button, timeout=10000)
+
+
+    def is_invalid_email_error_visible(self):
+        self.page.wait_for_selector(self.invalid_email_error)
+        return self.page.locator(self.invalid_email_error).is_visible()
 
     def is_email_already_exists(self):
         return self.page.locator(self.email_exists_error).is_visible()
