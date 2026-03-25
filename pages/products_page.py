@@ -26,11 +26,12 @@ class ProductsPage:
         reserve.click()
 
     def is_order_popup_opened(self):
-        return self.page.locator(self.popup).count() == 1
+        return self.page.locator(self.popup).is_visible()
 
     def close_popup(self):
         self.page.locator(self.close_popup_btn).click()
         self.page.wait_for_selector(self.popup, state="hidden", timeout=5000)
 
     def is_summary_visible(self):
-        return self.page.locator(self.summary_title, timeout=10000)
+        self.page.locator(self.summary_title).wait_for(state="visible", timeout=10000)
+        return self.page.locator(self.summary_title).is_visible()
