@@ -1,23 +1,29 @@
 # SVBurger Automation Tests
 
-Automation testing project for SVBurger web application using Playwright and Python.
+UI automation testing project for the SVBurger web application using Python and Playwright.
 
-## Features covered
+## Covered Scenarios
 
-- User registration
+- User registration (Sign Up)
 - Product selection
 - Order creation
 - Order summary popup validation
 
-## Tech stack
+## Tech Stack
 
 - Python
 - Playwright
-- PyCharm
-- Git & GitHub
+- pytest
 - Page Object Model (POM)
+- Git & GitHub
 
-## Project structure
+## Key Features
+
+- Structured test framework using Page Object Model
+- Reusable page objects and methods
+- Validation of core user flows and UI behavior
+
+## Project Structure
 
 pages/
 - home_page.py
@@ -31,7 +37,7 @@ tests/
 utils/
 - browser_factory.py
 
-## How to run tests
+## How to Run
 
 Install dependencies:
 
@@ -40,3 +46,7 @@ pip install -r requirements.txt
 Run tests:
 
 pytest tests/
+
+## Status
+
+Work in progress – expanding test coverage and improving test scenarios.
