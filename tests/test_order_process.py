@@ -58,5 +58,4 @@ def test_user_can_reserve_one_product():
 
     assert menu.is_order_popup_opened()
     assert menu.is_summary_visible()"""
-
-
+print("Test update")
