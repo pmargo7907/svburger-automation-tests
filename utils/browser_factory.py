@@ -1,19 +1,23 @@
 from playwright.sync_api import sync_playwright
+import os
 
 class BrowserFactory:
-    def __init__(self,headless=False):
-        self.headless = headless
+    def __init__(self):
         self.playwright = None
         self.browser = None
         self.page = None
 
     def start(self):
         self.playwright = sync_playwright().start()
-        self.browser = self.playwright.chromium.launch(channel = "chrome",
-                                                       headless=self.headless,  slow_mo=300)
+        headless = os.getenv("CI") == "true"
+        self.browser = self.playwright.chromium.launch(headless=headless)
         self.page = self.browser.new_page()
         return self.page
 
-    def stop(self):
-        self.browser.close()
-        self.playwright.stop()
+    def close(self):
+        if self.browser:
+            self.browser.close()
+        if self.playwright:
+            self.playwright.stop()
+
+
