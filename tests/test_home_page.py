@@ -8,7 +8,7 @@ def test_open_successfully():
     home = HomePage(page)
     home.open()
     assert home.is_loaded()
-    factory.stop()
+    factory.close()
 def test_click_sign_up_successfully():
     factory = BrowserFactory(headless=False)
     page = factory.start()
@@ -19,6 +19,6 @@ def test_click_sign_up_successfully():
     registration = RegistrationPage(page)
     assert registration.is_opened()
     time.sleep(5)
-    factory.stop()
+    factory.close()
 
 

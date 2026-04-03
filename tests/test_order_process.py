@@ -45,7 +45,7 @@ def test_user_can_reserve_one_product():
        assert menu.is_summary_visible()
 
     finally:
-       factory.stop()
+       factory.close()
 
     """
 

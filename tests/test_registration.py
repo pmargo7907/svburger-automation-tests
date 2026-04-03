@@ -30,7 +30,7 @@ def test_user_can_register_successfully():
         assert registration.is_profile_opened()
         page.wait_for_timeout(10000)
     finally:
-        factory.stop()
+        factory.close()
 
 def test_user_register_with_invalid_email():
     factory = BrowserFactory(headless=False)
@@ -65,7 +65,7 @@ def test_user_register_with_invalid_email():
         page.wait_for_timeout(10000)
 
     finally:
-        factory.stop()
+        factory.close()
 
 def test_user_register_with_empty_email():
     factory = BrowserFactory(headless=False)
@@ -100,7 +100,7 @@ def test_user_register_with_empty_email():
         page.wait_for_timeout(10000)
 
     finally:
-        factory.stop()
+        factory.close()
 def test_user_register_password_mismatch():
     factory = BrowserFactory(headless=False)
     page = factory.start()
@@ -126,7 +126,7 @@ def test_user_register_password_mismatch():
         page.wait_for_timeout(10000)
 
     finally:
-        factory.stop()
+        factory.close()
 
 def test_user_register_email_already_exists():
     factory = BrowserFactory(headless=False)
@@ -186,4 +186,4 @@ def test_user_register_email_already_exists():
         page.wait_for_timeout(10000)
 
     finally:
-        factory.stop()
+        factory.close()

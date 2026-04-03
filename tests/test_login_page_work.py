@@ -24,4 +24,4 @@ def test_login_page_works():
 
 
     finally:
-        factory.stop()
+        factory.close()
