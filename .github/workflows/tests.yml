@@ -23,5 +23,5 @@ jobs:
           pip install pytest playwright
           python -m playwright install --with-deps chromium
 
-      - name: Run tests
+      - name: Run test
         run: pytest -p no:asyncio
