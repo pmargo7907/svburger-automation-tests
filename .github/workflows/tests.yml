@@ -23,5 +23,7 @@ jobs:
           pip install pytest playwright
           python -m playwright install --with-deps chromium
 
-      - name: Run test
-        run: pytest -p no:asyncio
+      - name: Run tests
+        env:
+          PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+        run: pytest
